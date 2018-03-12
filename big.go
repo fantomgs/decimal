@@ -646,7 +646,7 @@ func (x *Big) Format(s fmt.State, c rune) {
 		if x.exp > 0 {
 			f.prec += x.Precision()
 		} else {
-			if adj := x.exp + x.Precision(); adj >= 0 {
+			if adj := x.exp + x.Precision(); adj > -f.prec {
 				f.prec += adj
 			} else {
 				f.prec = -f.prec
